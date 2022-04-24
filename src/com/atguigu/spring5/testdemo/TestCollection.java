@@ -1,6 +1,8 @@
 package com.atguigu.spring5.testdemo;
 
 import com.atguigu.spring5.User;
+import com.atguigu.spring5.autowire.Emp;
+import com.atguigu.spring5.bean.Orders;
 import com.atguigu.spring5.collectiontype.Book;
 import com.atguigu.spring5.collectiontype.Course;
 import com.atguigu.spring5.collectiontype.Stu;
@@ -45,6 +47,31 @@ public class TestCollection {
                 new ClassPathXmlApplicationContext("bean6.xml");
         Course course = context.getBean("myBean", Course.class);
         System.out.println(course);
+    }
+
+    //测试bean生命周期
+    @Test
+    public void test4(){
+        //        ApplicationContext context =
+//                new ClassPathXmlApplicationContext("bean7.xml");
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean7.xml");
+        Orders orders = context.getBean("orders", Orders.class);
+        System.out.println("第四步 获取创建bean实例对象");
+        System.out.println(orders);
+
+        //手动让bean实例销毁
+        context.close();
+    }
+
+
+    //自动装配
+    @Test
+    public void test5() {
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("bean8.xml");
+        Emp emp = context.getBean("emp", Emp.class);
+        System.out.println(emp);
     }
 
 
