@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置 User 对象创建-->
+    <bean id="user" class="com.atguigu.spring5.User"></bean>
+
+    <!--set 方法注入属性-->
+    <bean id="book" class="com.atguigu.spring5.Book">
+        <!--使用 property 完成属性注入
+        name：类里面属性名称
+        value：向属性注入的值
+        -->
+        <property name="bname" value="易筋经"></property>
+        <!--<property name="bauthor" value="达摩老祖"></property>-->
+        <constructor-arg name="bauthor" value="达摩老祖"></constructor-arg>
+        <!--属性设置null值-->
+        <!--<property name="address">
+        <null/>
+        </property>-->
+        <!--设置特殊值-->
+        <property name="address">
+            <value><![CDATA[<<南京>>]]></value>
+        </property>
+    </bean>
+
+    <!-- 有参数构造注入属性--> <bean id="orders" class="com.atguigu.spring5.Orders">
+    <constructor-arg name="oname" value="电脑"></constructor-arg>
+    <constructor-arg name="address" value="China"></constructor-arg>
+</bean>
+
+</beans>
