@@ -1,7 +1,7 @@
 package com.atguigu.spring5.testdemo;
 
 import com.atguigu.spring5.annotation.service.UserService;
-import com.atguigu.spring5.config.SpringConfig;
+import com.atguigu.spring5.xmlconfig.SpringConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
